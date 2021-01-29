@@ -15,29 +15,19 @@ using namespace std;
 
 void solve(){ 
     int n;cin>>n;
-
-    if(n<=2)
+    vector<int> v(n);
+    for(int i=0;i<n;i++)
+    cin>>v[i];
+    
+    int ans=0;
+    map<int,int> mp;
+    for(int i=0;i<n;i++)
     {
-        cout<<"NO\n";
-        return;
+        mp[v[i]]++;
+        ans=max(ans,mp[v[i]]);
     }
-
-    if(n&1)
-    {
-        cout<<"YES";
-    }
-    else{
-        while(n%2==0)
-        {
-            n/=2;
-        }
-
-        if(n>1)
-        cout<<"YES";
-        else
-        cout<<"NO";
-    }
-    cout<<"\n";
+    cout<<ans<<"\n";
+    
 }
 
 
